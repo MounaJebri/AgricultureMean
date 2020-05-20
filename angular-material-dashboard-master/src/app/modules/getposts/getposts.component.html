@@ -1,0 +1,42 @@
+<div>
+<!-- <div  *ngFor="let item of postService.sensornode" >
+    <div >
+      <p>{{ item.ram }}</p>
+    </div>
+</div> -->
+
+<div class="centered-content">
+    <div class="modal-box">
+      <h1 class="title">
+        Create a new sensorNode
+      </h1>
+  
+      <input #listTitleInput class="input has-background-light is-medium"  placeholder="Enter Adress...">
+      <br><br>
+ 
+      <input #listTitleInput2 class="input has-background-light is-medium"  placeholder="Enter type...">
+      <br><br>
+ 
+      <input #listTitleInput3 class="input has-background-light is-medium"   placeholder="Enter if active or not...">
+      <br><br>
+ 
+      <input #listTitleInput4 class="input has-background-light is-medium"   placeholder="Enter Battery Level...">
+      <br><br>
+ 
+      <input #listTitleInput5 class="input has-background-light is-medium"   placeholder="Enter Electrovan is active or not...">
+      <br><br>
+ 
+      <input #listTitleInput6 class="input has-background-light is-medium"  placeholder="Enter Mode [ 1 , 2 , 3 , 4]...">
+      <br><br>
+
+      <input #listTitleInput7 class="input has-background-light is-medium"   placeholder="Enter Mode [ 1 , 2 , 3 , 4]...">
+      <br><br>
+      <div class="buttons is-right">
+        <button class="button is-medium" routerLink="/">Cancel</button>
+        <button class="button is-primary has-text-white is-medium" routerLink="/posts" (click)="createSensornode(listTitleInput.value , listTitleInput2.value ,listTitleInput3.value,listTitleInput4.value,listTitleInput5.value,listTitleInput6.value , listTitleInput7.value)">Create</button>
+      </div>
+  
+      
+    </div>
+  </div>
+</div>
