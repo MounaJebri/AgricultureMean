@@ -4,14 +4,18 @@ import { Task } from './models/Task.model';
 import { Node } from './models/Node.model';
 import { Sensornode } from './models/Sensornode.model';
 import { Gatewaynode } from './models/Gatewaynode.model';
+import { List } from './models/list.model';
+import { Tanknode } from './models/tanknode.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
   nodes : Node[];
+  lists : List[];
   sensornode: Sensornode[];
   gatewaynode : Gatewaynode[];
+  tanknode : Tanknode[];
   constructor(private webReqService: WebRequestService) { }
 
   
@@ -32,14 +36,8 @@ export class PostsService {
     return this.webReqService.delete(`nodes/${id}`);
   }
 
-
-
-
-
-
-
   getLists() {
-    return this.webReqService.get('lists');
+    return this.webReqService.get('list');
   }
 
   createList(title: string) {
@@ -66,7 +64,7 @@ export class PostsService {
   }
 
   getTasks(listId: string) {
-    return this.webReqService.get(`lists/${listId}/tasks`);
+    return this.webReqService.get(`list/${listId}/task`);
   }
 
   getSensornode(nodeId: string) { 

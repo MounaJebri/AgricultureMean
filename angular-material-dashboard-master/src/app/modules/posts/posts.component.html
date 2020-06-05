@@ -16,8 +16,8 @@
        <tbody>
          
           <tr *ngFor="let item of postService.nodes">
-             <td > {{ item.address }}  </td>
-             <td> <a routerLink="/getposts">{{ item.type }} </a></td>
+             <td ><a routerLink="/getposts">{{ item.address }}  </a> </td>
+             <td> {{ item.type }} </td>
              <td>{{ item.activeornot }}</td>
              <td>{{ item.batterylevel}} %</td>
              <td>{{ item.electrovan }}</td>

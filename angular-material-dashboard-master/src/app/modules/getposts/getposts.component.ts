@@ -18,37 +18,52 @@ export class GetpostsComponent implements OnInit {
   gatewaynode : Gatewaynode[];
   tanknode : Tanknode[];
   nodeId: string;
+  selectedNodeId: string;
 
   selectedSensornodeId : string;
 
   constructor(private postService: PostsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    // this.refreshEmployeeList();
+    this.refreshEmployeeList();
 
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     this.nodeId = params['nodeId'];
-    //   }
-    // )
+    this.route.params.subscribe(
+      (params: Params) => {
+        if (params.nodeId) {
+          this.selectedNodeId = params.nodeId;
+        } else {
+          this.nodes = undefined;
+        }
+      }
+    )
+
+    this.postService.getSensornode(this.nodeId).subscribe((sensornodes: Sensornode[]) => {
+      this.sensornodes = sensornodes;})
+
+      this.postService.getGatewaynode(this.nodeId).subscribe((gatewaynode: Gatewaynode[]) => {
+        this.gatewaynode = gatewaynode;})
+
+        this.postService.getTanknode(this.nodeId).subscribe((tanknode: Tanknode[]) => {
+          this.tanknode = tanknode;
+    })
     
   }
-  // refreshEmployeeList() {
-  //   this.postService.getSensornode(this.nodeId).subscribe((res) => {
-  //     this.postService.sensornode = res as Sensornode[];
-  //   });
-  // }
+  refreshEmployeeList() {
+    this.postService.getNodes().subscribe((res) => {
+      this.postService.nodes = res as Node[];
   
+      
+    });
+  }
+  /*  
   createSensornode(Ram: number ,smoke :number  ,temperature : number ,humidity : number,moisture : number,time : string , electrovan : boolean) {
     this.postService.createSensornode( Ram,smoke,temperature,humidity,moisture,time,electrovan,"5ec16e97175f3a2ef0a73ae3",).subscribe((newSensornode: Sensornode) => {
       
-      this.router.navigate([ '../' ], { relativeTo: this.route });
+      this.router.navigate([ '/getposts' ]);
       
-    });
+    }); 
   
-
-  
-  }
+   } */
 }
   
   

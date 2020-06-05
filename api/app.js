@@ -114,7 +114,7 @@ let verifySession = (req, res, next) => {
  * GET /lists
  * Purpose: Get all lists
  */
-app.get('/lists', authenticate, (req, res) => {
+app.get('/list', authenticate, (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     List.find({
         _userId: req.user_id
@@ -142,15 +142,12 @@ app.get('/node',authenticate,  (req, res) => {
         res.send(e);
     });
 })
-/**
- * POST /lists
- * Purpose: Create a list
- */
+ 
+
 app.post('/lists', authenticate, (req, res) => {
     // We want to create a new list and return the new list document back to the user (which includes the id)
     // The list information (fields) will be passed in via the JSON request body
     let title = req.body.title;
-
     let newList = new List({
         title,
         _userId: req.user_id
@@ -246,7 +243,7 @@ app.delete('/nodes/:id', authenticate, (req, res) => {
  * GET /lists/:listId/tasks
  * Purpose: Get all tasks in a specific list
  */
-app.get('/lists/:listId/tasks', authenticate, (req, res) => {
+app.get('/list/:listId/task', authenticate, (req, res) => {
     // We want to return all tasks that belong to a specific list (specified by listId)
     Task.find({
         _listId: req.params.listId

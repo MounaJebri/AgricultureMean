@@ -12,6 +12,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { WebReqInterceptor } from './web-req-interceptor';
 import { NewpostsComponent } from './modules/newposts/newposts.component';
 import { GetpostsComponent } from './modules/getposts/getposts.component';
+import { Getposts2Component } from './modules/getposts2/getposts2.component';
+import { Getposts3Component } from './modules/getposts3/getposts3.component';
+import { NewListComponent } from './modules/new-list/new-list.component';
+import { NewTaskComponent } from './modules/new-task/new-task.component';
+import { TaskViewComponent } from './modules/task-view/task-view.component';
 
 
 @NgModule({
@@ -22,6 +27,11 @@ import { GetpostsComponent } from './modules/getposts/getposts.component';
     SignupPageComponent,
     NewpostsComponent,
     GetpostsComponent,
+    Getposts2Component,
+    Getposts3Component,
+    NewListComponent,
+    NewTaskComponent,
+    TaskViewComponent,
 
   ],
   imports: [

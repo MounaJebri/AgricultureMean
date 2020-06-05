@@ -8,6 +8,9 @@ import { LoginPageComponent } from './modules/login-page/login-page.component';
 import { SignupPageComponent } from './modules/signup-page/signup-page.component'
 import { NewpostsComponent } from './modules/newposts/newposts.component';
 import { GetpostsComponent } from './modules/getposts/getposts.component';
+import { TaskViewComponent } from './modules/task-view/task-view.component';
+import { NewListComponent } from './modules/new-list/new-list.component';
+import { NewTaskComponent } from './modules/new-task/new-task.component';
 const routes: Routes = [
  
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,23 +18,17 @@ const routes: Routes = [
 { path: 'signup', component: SignupPageComponent },
 //{ path: 'dashboard', component: DashboardComponent },
 {path: '', component: DefaultComponent,
-  children: [{
-    path: 'dashboard',
-    component: DashboardComponent
-  }, {
-    path: 'posts',
-    component: PostsComponent
-  }, {
-    path: 'newposts',
-    component: NewpostsComponent
-  }, {
-    path: 'getposts',
-    component: GetpostsComponent
-  }, 
-  {
-    path: 'test',
-    component: TestComponent
-  } ]}
+  children: 
+  [ 
+  {path: 'dashboard',component: DashboardComponent}, 
+  {path: 'posts',component: PostsComponent}, 
+  { path: 'lists', component: TaskViewComponent },
+  { path: 'new-list', component: NewListComponent },
+  { path: 'lists/:listId', component: TaskViewComponent },
+  { path: 'lists/:listId/new-task', component: NewTaskComponent },
+  {path: 'newposts',component: NewpostsComponent},
+  {path: 'getposts',component: GetpostsComponent}, 
+  {path: 'test',component: TestComponent} ]}
 ];
 
 @NgModule({
